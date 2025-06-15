@@ -22,8 +22,11 @@ resource "aws_iam_access_key" "amatullah_demo" {
 data "aws_iam_policy_document" "amatullah_policy1" {
   statement {
     effect    = "Allow"
-    actions   = ["s3:PutObject"]
-    resources = ["arn:aws:s3:::amatullah-data-bucket"]
+    actions   = ["s3:PutObject",
+                 "s3:ListBucket"]
+
+    resources = ["arn:aws:s3:::amatullah-data-bucket",
+                 "arn:aws:s3:::amatullah-data-bucket/*"]
   }
 }
 
